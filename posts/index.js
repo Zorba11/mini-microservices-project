@@ -1,12 +1,14 @@
 const express = require('express');
 // const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 
 const app = express();
 //body parser is deprecated now
 // app.use(bodyParser.json());
 //so
 app.use(express.json());
+app.use(cors());
 
 const posts = {};
 
