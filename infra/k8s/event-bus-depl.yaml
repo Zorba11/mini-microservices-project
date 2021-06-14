@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
         - name: event-bus
-          image: mini-micro/event-bus:latest
+          image: bodhi123/event-bus:latest
 ---
 apiVersion: v1
 kind: Service

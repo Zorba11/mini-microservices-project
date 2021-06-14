@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
         - name: posts
-          image: mini-micro/posts:latest
+          image: bodhi123/posts:latest
 ---
 apiVersion: v1
 kind: Service
