@@ -1,59 +1,58 @@
 apiVersion: skaffold/v2alpha3
-kind: config
+kind: Config
 deploy:
   kubectl:
-    manifest:
+    manifests:
       - ./infra/k8s/*
 build:
   local:
     push: false
   artifacts:
-    - image: bodhi123/client
+    - image: cygnetops/client-95
       context: client
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: "src/**/*.js"
             dest: .
-    - image: bodhi123/comments
+    - image: cygnetops/comments-84
       context: comments
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '*.js'
+          - src: "*.js"
             dest: .
-     - image: bodhi123/event-bus
-       context: event-bus
-       docker:
+    - image: cygnetops/event-bus-85
+      context: event-bus
+      docker:
         dockerfile: Dockerfile
-       sync:
+      sync:
         manual:
-          - src: '*.js'
+          - src: "*.js"
             dest: .
-     - image: bodhi123/moderation
-       context: moderation
-       docker:
+    - image: cygnetops/moderation-84
+      context: moderation
+      docker:
         dockerfile: Dockerfile
-       sync:
+      sync:
         manual:
-          - src: '*.js'
+          - src: "*.js"
             dest: .
-     - image: bodhi123/posts
-       context: posts
-       docker:
+    - image: cygnetops/posts-95
+      context: posts
+      docker:
         dockerfile: Dockerfile
-       sync:
+      sync:
         manual:
-          - src: '*.js'
+          - src: "*.js"
             dest: .
-     - image: bodhi123/query
-       context: query
-       docker:
+    - image: cygnetops/query-84
+      context: query
+      docker:
         dockerfile: Dockerfile
-       sync:
+      sync:
         manual:
-          - src: '*.js'
+          - src: "*.js"
             dest: .
-    
