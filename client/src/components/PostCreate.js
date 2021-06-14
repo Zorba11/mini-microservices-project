@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
     const [title, setTitle] = useState('');
 
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post('http://posts.com/post', {
+        await axios.post('http://posts.com/post/create', {
             title
         });
 

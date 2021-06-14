@@ -1,0 +1,59 @@
+apiVersion: skaffold/v2alpha3
+kind: config
+deploy:
+  kubectl:
+    manifest:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: bodhi123/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+    - image: bodhi123/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+     - image: bodhi123/event-bus
+       context: event-bus
+       docker:
+        dockerfile: Dockerfile
+       sync:
+        manual:
+          - src: '*.js'
+            dest: .
+     - image: bodhi123/moderation
+       context: moderation
+       docker:
+        dockerfile: Dockerfile
+       sync:
+        manual:
+          - src: '*.js'
+            dest: .
+     - image: bodhi123/posts
+       context: posts
+       docker:
+        dockerfile: Dockerfile
+       sync:
+        manual:
+          - src: '*.js'
+            dest: .
+     - image: bodhi123/query
+       context: query
+       docker:
+        dockerfile: Dockerfile
+       sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    

@@ -17,7 +17,7 @@ app.get('/posts', (req, res) => {
     res.send(posts);
 });
 
-app.post('/post', async (req, res) => {
+app.post('/post/create', async (req, res) => {
     //create 4byte string id for each post
     const id = randomBytes(4).toString('hex');
     const { title } = req.body;
